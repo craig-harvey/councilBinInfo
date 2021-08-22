@@ -1,0 +1,12 @@
+{
+  "name": "which-bin",
+  "version": "1.0.0",
+  "description": "Notify which council bin to put out",
+  "main": "whichBin.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Craig Harvey",
+  "license": "MIT License",
+  "dependencies": {   }
+}
