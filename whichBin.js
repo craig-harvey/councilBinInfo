@@ -11,7 +11,6 @@
  * permissions and limitations under the License.
  */
 
-
 // sets up dependencies
 const Alexa = require('ask-sdk-core');
 const i18n = require('i18next');
@@ -48,7 +47,7 @@ function selectNext(data) {
 } 
 
 function addDays(date, days) {
-  // Add the specified nunber of days to the given date
+  // Add the specified number of days to the given date
 
   var result = new Date(date);
   result.setDate(result.getDate() + days);
@@ -56,7 +55,7 @@ function addDays(date, days) {
 }
 
 // Get the next bin type (organic | recycle)
-function getNextBinType() {
+async function getNextBinType() {
   let startDate = new Date().toISOString().replace(/T.+/, '');
   let endDate = addDays(startDate, 14).toISOString().replace(/T.+/, '');
   let path = '/api/v1/properties/697646.json?start=' + startDate + '&end=' + endDate;
@@ -286,6 +285,10 @@ const LocalizationInterceptor = {
 };
 
 const skillBuilder = Alexa.SkillBuilders.custom();
+
+module.exports = {
+  getNextBinType
+};
 
 exports.handler = skillBuilder
   .addRequestHandlers(
